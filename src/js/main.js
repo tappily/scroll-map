@@ -1,3 +1,3 @@
-define(['watcher'], function($watcher) {
+define(['./watcher'], function($watcher) {
   return $watcher;
 });

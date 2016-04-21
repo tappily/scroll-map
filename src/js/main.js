@@ -16,14 +16,19 @@ define(['can/map', 'can/map/define'], function($map) {
       },
       optimal: {
         get: function() {
-          var target = this.attr('target'),
-              target_top = target.offsetTop,
+          var target = this.attr('target');
+          
+          if(!target) {
+            return false;
+          }
+          
+          var target_top = target.offsetTop,
               target_bottom = target_top + target.offsetHeight,
               view_height = this.attr('vh'),
               view_top = this.attr('y') + view_height/3,
               view_bottom = view_top + view_height - view_height/3 * 2;
           
-              return !(target_top > view_bottom) && !(target_bottom < view_top);
+          return !(target_top > view_bottom) && !(target_bottom < view_top);
         },
         value: false,
         type: 'boolean'

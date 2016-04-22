@@ -1,9 +1,11 @@
 define(['can/map', 'can/map/define'], function($map) {
+
+  'use strict';
   
   function calcViewable($target_top, $target_height, $view_top, $view_height) {
     var target_bottom = $target_top + $target_height,
         view_bottom = $view_top + $view_height;
-    return !($target_top > view_bottom) && !(target_bottom < $view_top);
+    return !($target_top > view_bottom && target_bottom < $view_top);
   }
   
   var Watcher = $map.extend({
@@ -21,7 +23,7 @@ define(['can/map', 'can/map/define'], function($map) {
               viewTop = this.attr('y') + viewHeight/3,
               viewBottom = viewTop + viewHeight - viewHeight/3 * 2;
           
-          return !(target.offsetTop > viewBottom) && !(target.offsetBottom < viewTop);
+          return !(target.offsetTop > viewBottom && target.offsetBottom < viewTop);
         },
         value: false,
         type: 'boolean'
@@ -32,7 +34,7 @@ define(['can/map', 'can/map/define'], function($map) {
               viewTop = this.attr('y'),
               viewBottom = viewTop + this.attr('vh');
           
-          return !(target.offsetTop > viewBottom) && !(target.offsetBottom < viewTop);
+          return !(target.offsetTop > viewBottom && target.offsetBottom < viewTop);
         },
         value: false,
         type: 'boolean'
@@ -79,5 +81,5 @@ define(['can/map', 'can/map/define'], function($map) {
     });
     
     return watcher;
-  }
+  };
 });

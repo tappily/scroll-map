@@ -35,13 +35,18 @@ define(['can/map', 'can/map/define'], function($map) {
       },
       viewable: {
         get: function() {
-          var target = this.attr('target'),
-              target_top = target.offsetTop,
+          var target = this.attr('target');
+          
+          if(!target) {
+            return false;
+          }
+          
+          var target_top = target.offsetTop,
               target_bottom = target_top + target.offsetHeight,
               view_top = this.attr('y'),
               view_bottom = view_top + this.attr('vh');
           
-              return !(target_top > view_bottom) && !(target_bottom < view_top);
+          return !(target_top > view_bottom) && !(target_bottom < view_top);
         },
         value: false,
         type: 'boolean'

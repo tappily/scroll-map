@@ -1,0 +1,23 @@
+{
+  "name": "scroll-map",
+  "version": "1.0.0",
+  "description": "Mapping the window scroll event in can.",
+  "main": "src/js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tappily/scroll-map.git"
+  },
+  "keywords": [
+    "scroll",
+    "js"
+  ],
+  "author": "tappily",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tappily/scroll-map/issues"
+  },
+  "homepage": "https://github.com/tappily/scroll-map#readme"
+}

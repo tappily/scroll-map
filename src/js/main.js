@@ -21,9 +21,11 @@ define(['can/map', 'can/map/define'], function($map) {
           var target = this.attr('target'),
               viewHeight = this.attr('vh'),
               viewTop = this.attr('y') + viewHeight/3,
-              viewBottom = viewTop + viewHeight - viewHeight/3 * 2;
+              viewBottom = viewTop + viewHeight - viewHeight/3 * 2,
+              outsideViewBottom = target.offsetTop > viewBottom,
+              outsideViewTop = target.offsetBottom < viewTop;
           
-          return !(target.offsetTop > viewBottom && target.offsetBottom < viewTop);
+          return !outsideViewBottom && !outsideViewTop;
         },
         value: false,
         type: 'boolean'
@@ -32,9 +34,11 @@ define(['can/map', 'can/map/define'], function($map) {
         get: function() {
           var target = this.attr('target'),
               viewTop = this.attr('y'),
-              viewBottom = viewTop + this.attr('vh');
-          
-          return !(target.offsetTop > viewBottom && target.offsetBottom < viewTop);
+              viewBottom = viewTop + this.attr('vh'),
+              outsideViewBottom = target.offsetTop > viewBottom,
+              outsideViewTop = target.offsetBottom < viewTop;
+
+          return !outsideViewBottom && !outsideViewTop;
         },
         value: false,
         type: 'boolean'

@@ -16,37 +16,23 @@ define(['can/map', 'can/map/define'], function($map) {
       },
       optimal: {
         get: function() {
-          var target = this.attr('target');
+          var target = this.attr('target'),
+              viewHeight = this.attr('vh'),
+              viewTop = this.attr('y') + viewHeight/3,
+              viewBottom = viewTop + viewHeight - viewHeight/3 * 2;
           
-          if(!target) {
-            return false;
-          }
-          
-          var target_top = target.offsetTop,
-              target_bottom = target_top + target.offsetHeight,
-              view_height = this.attr('vh'),
-              view_top = this.attr('y') + view_height/3,
-              view_bottom = view_top + view_height - view_height/3 * 2;
-          
-          return !(target_top > view_bottom) && !(target_bottom < view_top);
+          return !(target.offsetTop > viewBottom) && !(target.offsetBottom < viewTop);
         },
         value: false,
         type: 'boolean'
       },
       viewable: {
         get: function() {
-          var target = this.attr('target');
+          var target = this.attr('target'),
+              viewTop = this.attr('y'),
+              viewBottom = viewTop + this.attr('vh');
           
-          if(!target) {
-            return false;
-          }
-          
-          var target_top = target.offsetTop,
-              target_bottom = target_top + target.offsetHeight,
-              view_top = this.attr('y'),
-              view_bottom = view_top + this.attr('vh');
-          
-          return !(target_top > view_bottom) && !(target_bottom < view_top);
+          return !(target.offsetTop > viewBottom) && !(target.offsetBottom < viewTop);
         },
         value: false,
         type: 'boolean'
@@ -60,6 +46,21 @@ define(['can/map', 'can/map/define'], function($map) {
         value: 0
       },
       target: {
+        set: function($target) {
+          var impl = {
+            offsetTop: 0,
+            offsetHeight: 0,
+            offsetBottom: 0
+          };
+          
+          if($target) {
+            impl.offsetTop = parseFloat($target.offsetTop);
+            impl.offsetHeight = parseFloat($target.offsetHeight);
+            impl.offsetBottom = impl.offsetTop + impl.offsetHeight;
+          }
+          
+          return impl;
+        },
         value: null
       }
     }

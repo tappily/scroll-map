@@ -1,5 +1,5 @@
 # Scroll Map
-Map the scroll state of the window using AMD and CanJS.
+Map the scroll state of the window compared to the calculated position a target element using AMD and CanJS.
 
 ##Use
 

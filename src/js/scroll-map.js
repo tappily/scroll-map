@@ -61,7 +61,7 @@ define(['can/map', 'can/map/define', 'scroll-map/calculatedOffsets'], function($
           
           if($target) {
             impl.offsetTop = parseFloat($offsets($target).offsetTop);
-            impl.offsetHeight = parseFloat($offsets($target).offsetHeight);
+            impl.offsetHeight = parseFloat($target.offsetHeight);
             impl.offsetBottom = impl.offsetTop + impl.offsetHeight;
           }
           

@@ -1,4 +1,4 @@
-define(['can/map', 'can/map/define'], function($map) {
+define(['can/map', 'can/map/define', './calculatedOffsets'], function($map, $define, $offsets) {
 
   'use strict';
   
@@ -60,8 +60,8 @@ define(['can/map', 'can/map/define'], function($map) {
           };
           
           if($target) {
-            impl.offsetTop = parseFloat($target.offsetTop);
-            impl.offsetHeight = parseFloat($target.offsetHeight);
+            impl.offsetTop = parseFloat($offsets($target).offsetTop);
+            impl.offsetHeight = parseFloat($offsets($target).offsetHeight);
             impl.offsetBottom = impl.offsetTop + impl.offsetHeight;
           }
           

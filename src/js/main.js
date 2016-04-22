@@ -6,6 +6,12 @@ define(['can/map', 'can/map/define'], function($map) {
     return !($target_top > view_bottom) && !(target_bottom < $view_top);
   }
   
+  var defaultWatcherTargetImpl = {
+    offsetTop: 0,
+    offsetHeight: 0,
+    offsetBottom: 0
+  };
+  
   var Watcher = $map.extend({
     define: {
       status: {
@@ -47,11 +53,7 @@ define(['can/map', 'can/map/define'], function($map) {
       },
       target: {
         set: function($target) {
-          var impl = {
-            offsetTop: 0,
-            offsetHeight: 0,
-            offsetBottom: 0
-          };
+          var impl = defaultWatcherTargetImpl;
           
           if($target) {
             impl.offsetTop = parseFloat($target.offsetTop);
@@ -61,7 +63,7 @@ define(['can/map', 'can/map/define'], function($map) {
           
           return impl;
         },
-        value: null
+        value: defaultWatcherTargetImpl
       }
     }
   });

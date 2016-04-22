@@ -2,12 +2,6 @@ define(['can/map', 'can/map/define', 'scroll-map/calculatedOffsets'], function($
 
   'use strict';
   
-  function calcViewable($target_top, $target_height, $view_top, $view_height) {
-    var target_bottom = $target_top + $target_height,
-        view_bottom = $view_top + $view_height;
-    return !($target_top > view_bottom && target_bottom < $view_top);
-  }
-  
   var Watcher = $map.extend({
     define: {
       status: {

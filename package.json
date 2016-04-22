@@ -1,7 +1,7 @@
 {
   "name": "scroll-map",
   "version": "1.0.0",
-  "description": "Mapping the window scroll event in can.",
+  "description": "Map the scroll state of the window compared to the calculated position a target element using AMD and CanJS.",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "grunt test"
@@ -12,7 +12,10 @@
   },
   "keywords": [
     "scroll",
-    "js"
+    "js",
+    "can",
+    "amd",
+    "requirejs"
   ],
   "author": "tappily",
   "license": "MIT",

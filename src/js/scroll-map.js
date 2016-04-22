@@ -1,4 +1,4 @@
-define(['can/map', 'can/map/define', 'calculatedOffsets'], function($map, $define, $offsets) {
+define(['can/map', 'can/map/define', 'scroll-map/calculatedOffsets'], function($map, $define, $offsets) {
 
   'use strict';
   

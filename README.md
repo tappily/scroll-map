@@ -36,7 +36,7 @@ Initialize your control with a new scrollmap instance.
 define('main', ['scroll/somecontrol', "scroll-map"], function($control, $createScrollMap) {
   var element = document.getElementById('#sometarget');
   return new $control(element, {
-    scroll: $createScrollMap(element)
+    scrollMap: $createScrollMap(element)
   })
 });
 
